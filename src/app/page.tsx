@@ -96,7 +96,7 @@ const BillSplitterApp = () => {
       <div className="bg-white rounded-2xl p-6 shadow-lg text-center 
                 max-w-sm md:max-w-2xl lg:max-w-4xl 
                 max-h-[90vh] md:max-h-none overflow-auto mx-4 md:mx-auto">
-         <h1 className="text-2xl font-bold mt-6 mb-10">🌿 더치페이 계산기 🌿</h1>
+        <h1 className="text-2xl font-bold mt-6 mb-10">🌿 더치페이 계산기 🌿</h1>
 
         <label className="block text-lg mb-3 text-gray-800">참여 인원
         </label>
@@ -134,10 +134,12 @@ const BillSplitterApp = () => {
                 className="border border-gray-300 p-3 rounded-xl w-1/2 focus:outline-none focus:border-[#E78F81]" />
               <input
                 type="number"
-                value={exp.amount}
+                value={exp.amount === 0 ? '' : exp.amount}
                 onChange={(e) => {
+                  const input = e.target.value;
+
                   const newExpenses = [...expenses];
-                  newExpenses[idx].amount = parseInt(e.target.value) || 0;
+                  newExpenses[idx].amount = parseInt(input.replace(/^0+/, '')) || 0;
                   setExpenses(newExpenses);
                 }}
                 placeholder="0"
