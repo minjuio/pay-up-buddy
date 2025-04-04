@@ -1,5 +1,4 @@
 import React from "react";
-import { Copy } from "lucide-react";
 
 type ButtonProps = {
   children: React.ReactNode;
