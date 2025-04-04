@@ -92,10 +92,10 @@ const BillSplitterApp = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#D8E7C5] px-6 py-[30px]">
+    <div className="flex flex-col items-center justify-center h-dvh bg-[#D8E7C5] px-6 py-[30px] overflow-hidden">
       <div className="bg-white rounded-2xl p-6 shadow-lg text-center 
-                max-w-sm md:max-w-2xl lg:max-w-4xl 
-                max-h-[90vh] md:max-h-none overflow-auto mx-4 md:mx-auto">
+                  max-w-sm md:max-w-2xl lg:max-w-4xl 
+                  max-h-[calc(100dvh-60px)] overflow-auto mx-4 md:mx-auto">
         <h1 className="text-2xl font-bold mt-6 mb-10">🌿 더치페이 계산기 🌿</h1>
 
         <label className="block text-lg mb-3 text-gray-800">참여 인원
@@ -104,7 +104,9 @@ const BillSplitterApp = () => {
           <button
             onClick={() => setTotalPeople((prev) => Math.max(1, prev - 1))}
             className="w-10 h-10 border-2 border-[#E5B9A8] bg-white text-[#E5B9A8] rounded-full text-2xl font-bold flex items-center justify-center
-             hover:bg-[#E78F81] hover:text-white active:bg-[#E78F81] active:text-white transition touch-action-manipulation"
+             hover:bg-[#E78F81] hover:text-white
+             active:bg-[#E78F81] active:text-white
+             transition-all duration-200 ease-out touch-action-manipulation"
           >
             -
           </button>
@@ -112,14 +114,16 @@ const BillSplitterApp = () => {
           <button
             onClick={() => setTotalPeople((prev) => prev + 1)}
             className="w-10 h-10 border-2 border-[#E5B9A8] bg-white text-[#E5B9A8] rounded-full text-2xl font-bold flex items-center justify-center
-             hover:bg-[#E78F81] hover:text-white active:bg-[#E78F81] active:text-white transition touch-action-manipulation"
+             hover:bg-[#E78F81] hover:text-white
+             active:bg-[#E78F81] active:text-white
+             transition-all duration-200 ease-out touch-action-manipulation"
           >
             +
           </button>
         </div>
 
         <div className="mb-8 max-h-[40vh] overflow-auto">
-          <h2 className="font-semibold mb-3 text-left text-lg text-gray-800">비용 입력</h2>
+          {/* <h2 className="font-semibold mb-3 text-left text-lg text-gray-800">비용 입력</h2> */}
           {expenses.map((exp, idx) => (
             <div key={idx} className="flex gap-3 mb-3">
               <input
