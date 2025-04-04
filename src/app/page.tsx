@@ -92,10 +92,11 @@ const BillSplitterApp = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-dvh bg-[#D8E7C5] px-6 py-[30px] overflow-hidden">
-      <div className="bg-white rounded-2xl p-6 shadow-lg text-center 
-                  max-w-sm md:max-w-2xl lg:max-w-4xl 
-                  max-h-[calc(100dvh-60px)] overflow-auto mx-4 md:mx-auto">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#D8E7C5] px-6 py-[30px] overflow-hidden">
+      <div className="bg-white rounded-2xl p-4 md:p-6 shadow-lg text-center 
+              w-[90%] max-w-xs md:max-w-lg lg:max-w-2xl
+              overflow-auto mx-auto"
+        style={{ maxHeight: 'min(85vh, calc(100vh - 60px))' }}>
         <h1 className="text-2xl font-bold mt-6 mb-10">🌿 더치페이 계산기 🌿</h1>
 
         <label className="block text-lg mb-3 text-gray-800">참여 인원
@@ -159,7 +160,7 @@ const BillSplitterApp = () => {
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         {result && (
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-4">정산 결과</h2>
+            <h2 className="text-2xl font-semibold mb-4">🌿 정산 결과</h2>
             <p className="text-lg mb-2">총 지출: {result.totalAmount.toLocaleString()}원</p>
             <p className="text-lg mb-4">1인당 부담금: {result.perPerson.toLocaleString()}원</p>
             <ul className="text-left text-base mb-6">
